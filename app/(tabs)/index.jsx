@@ -1,12 +1,22 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import NavBar from '../../components/Navbar';
+import { useRouter } from 'expo-router';
+import { TouchableOpacity } from 'react-native'; 
 
 const HomeScreen = () => {
+
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       
       <Text style={styles.text}>Welcome to the Home Screen</Text>
+
+      <TouchableOpacity style={styles.container} 
+       onPress={()=>router.push('login/signUp')}
+       >
+         <Text>Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
