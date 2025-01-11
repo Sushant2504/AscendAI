@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
-import LinkedInModal from 'react-native-linkedin'
 
 export default function SignUpScreen() {
   const router = useRouter();
