@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-nati
 import YouTubeIframe from 'react-native-youtube-iframe'; // Import YouTube iframe package
 import { WebView } from 'react-native-webview';
 
-const App = () => {
+const Learn = () => {
   const [activeTab, setActiveTab] = useState('video'); // Track which section is active
 
   const renderContent = () => {
@@ -117,4 +117,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Learn;

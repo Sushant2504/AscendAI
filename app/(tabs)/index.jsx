@@ -11,7 +11,7 @@ import {
   Pressable,
 } from "react-native";
 
-const HomeScreen = () => {
+const home = () => {
   const categories = [
     { id: 1, name: "Web Development", icon: "🌐" },
     { id: 2, name: "App Development", icon: "📱" },
@@ -44,7 +44,10 @@ const HomeScreen = () => {
     },
   ];
   const gotoskills=()=>{
-    router.push('/signIn')
+    router.push('/skills')
+  }
+  const gotosignup=()=>{
+    router.push('/signUp')
   }
   const gotochats=()=>{
     router.push('/chat')
@@ -57,6 +60,7 @@ const HomeScreen = () => {
         <Text style={styles.greetingText}>Welcome Back!</Text>
         <Text style={styles.subtitle}>Keep learning and growing 🚀</Text>
       </View>
+       
       <View style={styles.btnContainer}>
         <Pressable style={styles.btn} onPress={gotoskills}>
           <Text style={styles.btnText}>Check Your Skills</Text>
@@ -67,6 +71,7 @@ const HomeScreen = () => {
       </View>
 
       {/* Categories Section */}
+      
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Categories</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -82,6 +87,9 @@ const HomeScreen = () => {
           ))}
         </ScrollView>
       </View>
+      <Pressable style={styles.btn} onPress={gotosignup}>
+          <Text style={styles.btnText}>Sign Up Btn</Text>
+        </Pressable>
 
       {/* Featured Courses Section */}
       <View style={styles.section}>
@@ -208,4 +216,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default home;

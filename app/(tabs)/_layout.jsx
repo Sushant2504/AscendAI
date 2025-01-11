@@ -1,27 +1,27 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import React from 'react';
 import { Tabs } from 'expo-router';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function TabLayout() {
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: 'blue',
-        tabBarInactiveTintColor: 'gray',
-        headerShown: false,
-      }}
+    screenOptions={{
+      tabBarActiveTintColor: 'blue',
+      tabBarInactiveTintColor: 'gray',
+      headerShown: false, // Show header for all screens in this tab
+    }}
+      
     >
-      {/* Home Tab */}
+      {/* Home Tab (Main Screen) */}
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'index',
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="home" color={color} />
           ),
         }}
       />
-
-      
 
       {/* Leaderboard Tab */}
       <Tabs.Screen
@@ -33,6 +33,8 @@ export default function TabLayout() {
           ),
         }}
       />
+
+      {/* Community Tab */}
       <Tabs.Screen
         name="Community"
         options={{
