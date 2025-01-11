@@ -5,6 +5,8 @@ import { useRouter } from 'expo-router';
 import { TouchableOpacity } from 'react-native';
 
 export default function SignUpScreen() {
+
+    const router = useRouter();
     return (
         <View>
 
@@ -91,7 +93,7 @@ export default function SignUpScreen() {
              </TouchableOpacity>
 
 
-             <TouchableOpacity>
+             <TouchableOpacity onPress={()=>router.push('login/signIn')}>
                  <Text style={styles.text5}>Have an account? Log in</Text>
              </TouchableOpacity>
 
