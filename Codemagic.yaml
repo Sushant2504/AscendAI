@@ -1,0 +1,29 @@
+# Codemagic.yaml
+# This file configures the build and deployment process for your React Native application.
+
+execution:
+  - name: android
+    environment:
+      OS: ubuntu-latest
+      NODE_JS: '18' 
+    script:
+      - npm install -g react-native-cli
+      - npm install
+      - npx react-native run-android 
+
+workflows:
+  # Define workflows to trigger builds and deployments.
+  # You can create multiple workflows for different triggers (e.g., push, pull request).
+  test:
+    instance_type: medium
+    triggers:
+      - github/push:
+          branches:
+            - main
+    steps:
+      - android 
+
+notifications:
+  # Configure email notifications for build success/failure.
+  emails:
+    - sushantnadavade006@gmail.com
