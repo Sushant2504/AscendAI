@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import axios from "axios";
+import { router } from "expo-router";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -85,12 +87,34 @@ const quizQuestions = [
 const QuizPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [questions, setQuestions] = useState(null);
   const [score, setScore] = useState(0);
+  const subskills =['React']
   const [showModal, setShowModal] = useState(false);
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
   };
+  // useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const response = await axios(
+          {
+            method:'GET',
+            url:`http://localhost:5000/api/v1/questions/get-quiz`,
+            body:{subskills}
+          }).then((res)=>
+          {console.log(res)})
+          setQuestions(response)
+          console.log(response)
+      } catch (error) {
+        setError('Error fetching quiz questions');
+        console.error(error);
+      }
+    };
+
+    fetchQuestions();
+  // }, []);
 
   const handleNextQuestion = () => {
     if (selectedOption === null) {
@@ -106,7 +130,25 @@ const QuizPage = () => {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedOption(null);
     } else {
-      setShowModal(true);
+      // Final score handling
+      if (score + 1 >= 8) {
+        // Show trophy for expert
+        Alert.alert(
+          "Congratulations!",
+          "You're an expert! 🏆",
+          [{ text: "OK", onPress: () => navigation.navigate("Home") }] // Replace "Home" with your trophy screen
+        );
+      } else if (score + 1 >= 4) {
+        // Redirect to Learn page
+        Alert.alert(
+          "Well Done!",
+          "Keep learning! Redirecting to the Learn page...",
+          [{ text: "OK", onPress: () => router.push("/learn") }]
+        );
+      } else {
+        // Default case (just show modal)
+        setShowModal(true);
+      }
     }
   };
 

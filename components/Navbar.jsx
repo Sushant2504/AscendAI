@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
@@ -9,7 +10,7 @@ const NavBar = () => (
       <Text style={styles.logoText}>AscendAI</Text>
     </View>
 
-    <TouchableOpacity style={styles.profileContainer}>
+    <TouchableOpacity style={styles.profileContainer} onPress={()=>router.push('/profile')}>
       {/* Replace with the URL or local path to the profile photo */}
       <Image source={{ uri: 'https://img.freepik.com/free-photo/cute-boy-helmet-with-headphones-3d-rendering_1142-57213.jpg?semt=ais_hybrid' }} style={styles.profilePhoto} />
     </TouchableOpacity>

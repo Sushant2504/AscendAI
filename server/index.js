@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./db/connectDB.js";
 import userRoutes from "./routes/user.route.js";
+import questionRoutes from "./routes/question.route.js";
 dotenv.config();
 
 const app = express();
@@ -14,6 +15,7 @@ connectDB();
 
 
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/questions", questionRoutes);
 app.get("/", (req, res) => res.send("Backend is running!"));
 
 const PORT = process.env.PORT || 5000;

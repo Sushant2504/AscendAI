@@ -6,57 +6,51 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: 'blue',
-        tabBarInactiveTintColor: 'gray',  // Added to customize the inactive tab icon color
-        headerShown: false,  // Hides header globally for all screens
+        tabBarInactiveTintColor: 'gray',
+        headerShown: false,
       }}
     >
+      {/* Home Tab */}
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={28} name="home" color={color} />
+          ),
+        }}
+      />
+
+      
+
+      {/* Leaderboard Tab */}
+      <Tabs.Screen
+        name="Leaderboard"
+        options={{
+          title: 'Leaderboard',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={28} name="trophy" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="quiz"
+        name="Community"
         options={{
-          title: 'Quiz',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
+          title: 'Community',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={24} name="users" color={color} />
+          ),
         }}
       />
+
+      {/* Profile Tab */}
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="user" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="learn"
-        options={{
-          title: 'Learn',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="book" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="AIhiring"
-        options={{
-          title: 'AI Hiring',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="user" color={color} />,
-        }}
-      />
-      {/* <Tabs.Screen
-        name="Leaderboard"
-        options={{
-          title: 'Leaderboard',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="bulb" color={color} />,
-        }}
-      /> */}
-      <Tabs.Screen
-        name="community"
-        options={{
-          title: 'Community',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="users" color={color} />,  // Fixed icon name
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={28} name="user" color={color} />
+          ),
         }}
       />
     </Tabs>

@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import React, { useState } from "react";
 import {
   View,
@@ -43,7 +44,9 @@ const SkillForm = () => {
       Alert.alert("Incomplete Form", "Please select at least one subskill.");
       return;
     }
-    Alert.alert("Form Submitted", `Selected SubSkills: ${selectedSubSkills.join(", ")}`);
+    router.push(
+    '/quiz'
+    )
   };
 
   return (
