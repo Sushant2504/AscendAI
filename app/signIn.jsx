@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 
-export default function SignUpScreen() {
+export default function SignInScreen() {
   const router = useRouter();
   
   const [email, setEmail] = useState('');
@@ -47,7 +47,7 @@ export default function SignUpScreen() {
         />
       </View>
 
-      <TouchableOpacity style={styles.signInButton}>
+      <TouchableOpacity style={styles.signInButton} onPress={()=>router.push('/onboard')}>
         <Text style={styles.signInButtonText}>Sign In</Text>
       </TouchableOpacity>
 

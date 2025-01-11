@@ -79,11 +79,11 @@ export default function SignUpScreen() {
         />
       </View>
 
-      <TouchableOpacity style={styles.signUpButton}>
+      <TouchableOpacity style={styles.signUpButton} onPress={() => router.push('signIn')}>
         <Text style={styles.signUpButtonText}>SignUp</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => router.push('signIn')}>
+      <TouchableOpacity onPress={() => router.push('/signIn')}>
         <Text style={styles.signInText}>Have an account? Log in</Text>
       </TouchableOpacity>
 

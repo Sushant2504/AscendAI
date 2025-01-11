@@ -136,7 +136,7 @@ const QuizPage = () => {
         Alert.alert(
           "Congratulations!",
           "You're an expert! 🏆",
-          [{ text: "OK", onPress: () => navigation.navigate("Home") }] // Replace "Home" with your trophy screen
+          [{ text: "OK", onPress: () => router.push("learn") }] // Replace "Home" with your trophy screen
         );
       } else if (score + 1 >= 4) {
         // Redirect to Learn page
