@@ -11,7 +11,7 @@ import {
   Pressable,
 } from "react-native";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
   const categories = [
     { id: 1, name: "Web Development", icon: "🌐" },
     { id: 2, name: "App Development", icon: "📱" },
@@ -46,6 +46,9 @@ const HomeScreen = ({ navigation }) => {
   const gotoskills=()=>{
     router.push('/skills')
   }
+  const gotochats=()=>{
+    router.push('/chat')
+  }
 
   return (
     <ScrollView style={styles.container}>
@@ -57,6 +60,9 @@ const HomeScreen = ({ navigation }) => {
       <View style={styles.btnContainer}>
         <Pressable style={styles.btn} onPress={gotoskills}>
           <Text style={styles.btnText}>Check Your Skills</Text>
+        </Pressable>
+        <Pressable style={styles.btn} onPress={gotochats}>
+          <Text style={styles.btnText}>Chat with Ascend Ai</Text>
         </Pressable>
       </View>
 
@@ -175,9 +181,11 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     flex: 1,
+    flexDirection:"row",
     // justifyContent: "center",
+    gap:4,
     // alignItems: "center",
-    // backgroundColor: "#f9f9f9",
+    backgroundColor: "#f9f9f9",
   },
   btn:{
     backgroundColor:"blue",

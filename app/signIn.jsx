@@ -69,13 +69,13 @@ export default function SignUpScreen() {
              </TouchableOpacity>
 
 
-             <TouchableOpacity onPress={()=>router.push('login/signIn')}>
+             <TouchableOpacity onPress={()=>router.push('signIn')}>
                  <Text style={styles.text5}>Forget Password</Text>
              </TouchableOpacity>
 
 
 
-             <TouchableOpacity style={styles.touchable} onPress={()=>router.push('login/signUp')}>
+             <TouchableOpacity style={styles.touchable} onPress={()=>router.push('signUp')}>
                  <Text style={styles.text6}>Don't have an account? Join Us</Text>
              </TouchableOpacity>
             
