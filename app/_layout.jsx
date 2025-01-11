@@ -15,6 +15,7 @@ export default function Layout() {
         <Stack.Screen name="skills" options={{ headerShown: false }} />
         <Stack.Screen name="learn" options={{ headerShown: false }} />
         <Stack.Screen name="login" options={{ headerShown: false }} />
+        <Stack.Screen name="chat" options={{ headerShown: false }} />
       </Stack>
     </View>
   );
