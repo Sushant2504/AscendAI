@@ -44,7 +44,7 @@ const HomeScreen = ({ navigation }) => {
     },
   ];
   const gotoskills=()=>{
-    router.push('/skills')
+    router.push('/chat')
   }
 
   return (
