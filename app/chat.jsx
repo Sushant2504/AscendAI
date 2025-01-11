@@ -49,7 +49,7 @@ const ChatApp = () => {
   // Function to call Gemini API and get response
   const getCareerGuidanceResponse = async (userMessage) => {
     try {
-      const genAI = new GoogleGenerativeAI("");
+      const genAI = new GoogleGenerativeAI("AIzaSyBLyRWEM_vxdTPzmkobdcctvrTcX0GgYoE");
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   
       // Tailor the prompt to ask for career guidance, suggesting courses and articles
