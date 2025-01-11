@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 
 export default function SignUpScreen() {
   const router = useRouter();
-  
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,188 +12,173 @@ export default function SignUpScreen() {
   const [learning, setLearning] = useState('');
 
   return (
-    <View>
+    <View style={styles.container}>
 
       <Text style={styles.text1}>Just Join us to be Skillful</Text>
+      <Text style={styles.text2}>You can take a test to customize your learning experience. Explore the courses and grab the job.</Text>
 
-      <Text style={styles.text2}>You can take a test to customise your learning experience. Explore the courses and grab the job</Text>
-
-      <View style={styles.row}>
-        <View style={[styles.button, styles.row]}>
-          <TouchableOpacity style={[styles.text3]}>
-            <Image source={require('./../assets/images/favicon.png')} style={styles.buttonImage} />
-            <Text style={styles.buttonText}>Google</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={[styles.button, styles.row]}>
-          <TouchableOpacity style={[styles.text3]}>
-            <Image source={require('./../assets/images/favicon.png')} style={styles.buttonImage} />
-            <Text style={styles.buttonText}>LinkedIn</Text>
-          </TouchableOpacity>
-        </View>
+      <View style={styles.socialButtonsContainer}>
+       <TouchableOpacity style={styles.socialButton}>
+                 <Image source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDIbudNn2WDl1Lc_jAa_B4bwjPyjIJW-fcoQ&s'}} style={styles.socialButtonImage} />
+                 <Text style={styles.socialButtonText}>Google</Text>
+               </TouchableOpacity>
+               <TouchableOpacity style={styles.socialButton}>
+                 <Image source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png'}} style={styles.socialButtonImage} />
+                 <Text style={styles.socialButtonText}>LinkedIn</Text>
+               </TouchableOpacity>
       </View>
 
-      <View>
-        <View style={styles.container}>
-          <TextInput
-            style={styles.input}
-            value={name}
-            onChangeText={setName}
-            placeholder="Name" 
-          />
-        </View>
-
-        <View style={styles.container}>
-          <TextInput
-            style={styles.input}
-            value={email}
-            onChangeText={setEmail}
-            placeholder="Email" 
-          />
-        </View>
-
-        <View style={styles.container}>
-          <TextInput
-            style={styles.input}
-            value={password}
-            onChangeText={setPassword}
-            placeholder="Password" 
-          />
-        </View>
-
-        <View style={styles.container}>
-          <TextInput
-            style={styles.input}
-            value={role}
-            onChangeText={setRole}
-            placeholder="Role" 
-          />
-        </View>
-
-        <View style={styles.container}>
-          <TextInput
-            style={styles.input}
-            value={learning}
-            onChangeText={setLearning}
-            placeholder="Learning" 
-          />
-        </View>
-
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          value={name}
+          onChangeText={setName}
+          placeholder="Name"
+          placeholderTextColor="#a9a9a9"
+        />
       </View>
 
-      <View>
-        <TouchableOpacity style={styles.container1}>
-          <Text style={styles.text4}>SignUp</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => router.push('signIn')}>
-          <Text style={styles.text5}>Have an account? Log in</Text>
-        </TouchableOpacity>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          value={email}
+          onChangeText={setEmail}
+          placeholder="Email"
+          placeholderTextColor="#a9a9a9"
+        />
       </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={setPassword}
+          placeholder="Password"
+          secureTextEntry
+          placeholderTextColor="#a9a9a9"
+        />
+      </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          value={role}
+          onChangeText={setRole}
+          placeholder="Role"
+          placeholderTextColor="#a9a9a9"
+        />
+      </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          value={learning}
+          onChangeText={setLearning}
+          placeholder="Learning"
+          placeholderTextColor="#a9a9a9"
+        />
+      </View>
+
+      <TouchableOpacity style={styles.signUpButton}>
+        <Text style={styles.signUpButtonText}>SignUp</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => router.push('signIn')}>
+        <Text style={styles.signInText}>Have an account? Log in</Text>
+      </TouchableOpacity>
 
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#f8f9fa',
     justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
   },
+
   text1: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: 'black',
-    padding: 16,
-    textAlign: "center",
+    color: '#343a40',
+    textAlign: 'center',
+    marginBottom: 10,
   },
+
   text2: {
     fontSize: 16,
-    color: 'black',
-    padding: 8,
-    textAlign: "center",
+    color: '#6c757d',
+    textAlign: 'center',
+    marginBottom: 30,
+    lineHeight: 24,
   },
-  text3: {
-    flex:1,
-    flexDirection:"row",
-    gap:4,
-    fontSize: 16,
-    fontWeight: "bold",
-    color: 'black',
-    padding: 8,
-    textAlign: "center",
+
+  socialButtonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginBottom: 30,
   },
-  text4: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: 'white',
-    padding: 5,
-    textAlign: "center",
-  },
-  text5: {
-    fontSize: 14,
-    color: "green",
-    padding: 5,
-    textAlign: "center",
-  },
-  button: {
-    flex: 1,
-    padding: 15,
-    width: 35,
-    height: 70,
-    backgroundColor: 'white',
-    justifyContent: 'center',
+
+  socialButton: {
+    flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 10,
+    backgroundColor: '#ffffff',
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 30,
     shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 3,
   },
-  container: {
-    padding: 10,
-    backgroundColor: "gray",
-  },
-  input: {
-    height: 40,
-    borderColor: 'white',
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 5,
-  },
-  buttonImage: {
-    width: 20,
-    height: 20,
+
+  socialButtonImage: {
+    width: 24,
+    height: 24,
     marginRight: 10,
   },
-  container1: {
-    marginTop: 30,
-    marginBottom: 30,
-    marginLeft: 50,
-    padding: 10,
-    height: 60,
-    width: 300,
-    alignContent: 'center',
-    backgroundColor: "green",
-    justifyContent: 'center',
+
+  socialButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#343a40',
+  },
+
+  inputContainer: {
+    marginBottom: 20,
+  },
+
+  input: {
+    height: 50,
+    backgroundColor: '#ffffff',
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    paddingLeft: 20,
+    fontSize: 16,
+    color: '#343a40',
+  },
+
+  signUpButton: {
+    backgroundColor: '#28a745',
+    borderRadius: 25,
+    paddingVertical: 15,
+    marginBottom: 20,
     alignItems: 'center',
-    borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+  },
+
+  signUpButtonText: {
+    color: '#ffffff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
+  signInText: {
+    color: '#007bff',
+    fontSize: 14,
+    textAlign: 'center',
   },
 });
